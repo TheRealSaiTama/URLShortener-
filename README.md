@@ -1,5 +1,3 @@
-Sure! Here's an example of a professional README.md file for the URL Shortener:
-
 ```markdown
 # URL Shortener
 
