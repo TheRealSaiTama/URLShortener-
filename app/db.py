@@ -1,8 +1,11 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-DATABASE_URL = "sqlite:///./urlshorty.db"   # swap to Postgres later via env
-engine = create_engine(DATABASE_URL, future=True)
+from .settings import settings
+
+engine = create_engine(settings.DATABASE_URL, future=True, pool_pre_ping=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-class Base(DeclarativeBase): pass
+
+class Base(DeclarativeBase):
+    ...
